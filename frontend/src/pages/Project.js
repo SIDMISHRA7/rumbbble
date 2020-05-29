@@ -25,14 +25,12 @@ import CommentFeed from "../components/CommentFeed";
 import CommentForm from "../components/CommentForm";
 import CommentSection from "../components/CommentSection";
 
-import withNavigation from "../hocs/withNavigation";
-
 import useNumLikes from "../hooks/useNumLikes";
 import useProject from "../hooks/useProject";
 
 import { selectUser } from "../reducers/authSlice";
 
-function ProjectPage() {
+export default function ProjectPage() {
   const { projectId } = useParams();
   const history = useHistory();
   const user = useSelector(selectUser);
@@ -146,5 +144,3 @@ function ProjectPage() {
     </Container>
   );
 }
-
-export default withNavigation(ProjectPage);

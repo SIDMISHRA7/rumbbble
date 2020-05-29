@@ -6,8 +6,6 @@ import Container from "react-bootstrap/Container";
 
 import { selectUser } from "../reducers/authSlice";
 
-import withNavigation from "../hocs/withNavigation";
-
 import Introduction from "../components/Introduction";
 import PostPreview from "../components/PostPreview";
 
@@ -17,7 +15,7 @@ const PostPreviewsContainer = styled.div`
   grid-gap: 36px;
 `;
 
-function LandingPage() {
+export default function LandingPage() {
   const user = useSelector(selectUser);
   const [projectFeed, setProjectFeed] = useState([]);
 
@@ -55,5 +53,3 @@ function LandingPage() {
     </Fragment>
   );
 }
-
-export default withNavigation(LandingPage);
