@@ -14,6 +14,7 @@ import LoginPage from "./pages/Login";
 import ProjectPage from "./pages/Project";
 import UploadPage from "./pages/Upload";
 import EditPage from "./pages/Edit";
+import NotFound from "./pages/NotFound";
 
 function App() {
   const dispatch = useDispatch();
@@ -35,6 +36,7 @@ function App() {
           path="/projects/:projectId/edit"
           component={EditPage}
         />
+        <Route component={NotFound} />
       </Switch>
     </BrowserRouter>
   );
