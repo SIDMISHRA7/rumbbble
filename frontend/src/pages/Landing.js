@@ -1,18 +1,11 @@
 import React, { Fragment, useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import axios from "axios";
-import styled from "styled-components";
-import Container from "react-bootstrap/Container";
 
 import { selectUser } from "../reducers/authSlice";
 
+import { ReactComponent as ArrowDownIcon } from "../assets/arrow-down.svg";
 import PostItem from "../components/PostItem";
-
-const PostPreviewsContainer = styled.div`
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
-  grid-gap: 36px;
-`;
 
 export default function LandingPage() {
   const user = useSelector(selectUser);
@@ -41,12 +34,26 @@ export default function LandingPage() {
     ));
 
   return (
-    <Fragment>
-      <Container className="px-sm-0">
-        <PostPreviewsContainer className="mt-4 card-deck">
-          {renderPostPreviews()}
-        </PostPreviewsContainer>
-      </Container>
-    </Fragment>
+    <div className="container">
+      <div className="posts">
+        <div className="home-intro">
+          <h1>Top programming projects for</h1>
+          <form className="category-filter">
+            <select
+              className="js-posts-range"
+              name="range"
+              style={{ width: "173px" }}
+            >
+              <option value="today">today</option>
+              <option value="week">this week</option>
+              <option value="month">this month</option>
+              <option value="year">this year</option>
+            </select>
+            <ArrowDownIcon />
+          </form>
+        </div>
+        {renderPostPreviews()}
+      </div>
+    </div>
   );
 }
