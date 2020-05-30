@@ -13,10 +13,6 @@ import bsCustomFileInput from "bs-custom-file-input";
 
 import Logo from "../components/Logo";
 
-const TopNavigationContainer = styled(Navbar)`
-  background: #0d0c22;
-`;
-
 export default function UploadPage() {
   const history = useHistory();
   const [postImage, setPostImage] = useState();
@@ -51,20 +47,6 @@ export default function UploadPage() {
     }
   };
 
-  const renderTopNav = (
-    <TopNavigationContainer variant="dark">
-      <Container fluid>
-        <Navbar.Brand href="/">
-          <Logo color="#fff" />
-        </Navbar.Brand>
-        <Navbar.Text className="font-weight-bold text-white mx-auto">
-          Publish your Project
-        </Navbar.Text>
-        <Navbar.Text>Help</Navbar.Text>
-      </Container>
-    </TopNavigationContainer>
-  );
-
   const renderBottomNav = (
     <Navbar fixed="bottom" className="border-top">
       <Container fluid>
@@ -84,7 +66,6 @@ export default function UploadPage() {
 
   return (
     <Fragment>
-      {renderTopNav}
       <Container>
         <Row>
           <Col md={8} className="mx-auto">

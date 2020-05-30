@@ -53,20 +53,6 @@ export default function EditPage() {
     }
   };
 
-  const renderTopNav = (
-    <TopNavigationContainer variant="dark">
-      <Container>
-        <LogoContainer href="/">
-          {/* <Logo src={require("../assets/logo.png")} alt="logo" /> */}
-        </LogoContainer>
-        <Navbar.Text className="font-weight-bold text-white mx-auto">
-          Publish your Project
-        </Navbar.Text>
-        <Navbar.Text>Help</Navbar.Text>
-      </Container>
-    </TopNavigationContainer>
-  );
-
   const renderBottomNav = (
     <Navbar sticky="bottom" className="border-top">
       <Container>
@@ -77,7 +63,6 @@ export default function EditPage() {
 
   return (
     <Fragment>
-      {renderTopNav}
       <p>Project Image</p>
       <Image
         fluid
