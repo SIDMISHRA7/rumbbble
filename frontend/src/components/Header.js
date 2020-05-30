@@ -27,14 +27,14 @@ export default function Header() {
       <a className="auth-nav-item" href="/profile">
         <img src={user.picture} className="avatar" alt={user.name} />
       </a>
-      <a class="btn btn--blue auth-nav-item" href="/projects/new">
+      <a className="btn btn--blue auth-nav-item" href="/projects/new">
         Upload
       </a>
     </Fragment>
   );
 
   const renderSignedOut = (
-    <a class="btn btn--blue auth-nav-item" href="/login">
+    <a className="btn btn--blue auth-nav-item" href="/login">
       Sign in
     </a>
   );

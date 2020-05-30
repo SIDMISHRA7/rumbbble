@@ -13,21 +13,10 @@ export default function PostItem({
   children,
 }) {
   const [numLikes, setNumLikes] = useState(0);
-  const [numComments, setNumComments] = useState(0);
 
   useEffect(() => {
     fetchLikeNumber();
-    fetchCommentNumber();
   }, [_id]);
-
-  const fetchCommentNumber = async () => {
-    try {
-      const response = await axios.get(`/comments/${_id}/count`);
-      setNumComments(response.data);
-    } catch (error) {
-      throw Error(error);
-    }
-  };
 
   const fetchLikeNumber = async () => {
     try {
@@ -53,10 +42,11 @@ export default function PostItem({
       data-remote="true"
       href={`/projects/${_id}`}
     >
+      {console.log(image)}
       <div
         className="post-item__preview"
         style={{
-          backgroundImage: `url(${image})`,
+          backgroundImage: `url("${image}")`,
         }}
       />
       <div className="post-item__content">
@@ -104,7 +94,7 @@ export default function PostItem({
               <ArrowUpFillIcon />
             </button>
           </form>{" "}
-          <p className="vote-count">22</p>
+          <p className="vote-count">{numLikes}</p>
           <form
             className="button_to"
             method="post"
