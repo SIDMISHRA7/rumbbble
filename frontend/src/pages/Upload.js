@@ -11,8 +11,6 @@ import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import bsCustomFileInput from "bs-custom-file-input";
 
-import Logo from "../components/Logo";
-
 export default function UploadPage() {
   const history = useHistory();
   const [postImage, setPostImage] = useState();
