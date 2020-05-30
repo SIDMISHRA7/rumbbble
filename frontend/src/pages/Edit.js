@@ -9,10 +9,6 @@ import Button from "react-bootstrap/Button";
 
 import useProject from "../hooks/useProject";
 
-const TopNavigationContainer = styled(Navbar)`
-  background: #0d0c22;
-`;
-
 const LogoContainer = styled(Navbar.Brand)`
   line-height: 0;
 `;
