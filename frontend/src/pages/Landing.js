@@ -6,8 +6,7 @@ import Container from "react-bootstrap/Container";
 
 import { selectUser } from "../reducers/authSlice";
 
-import Introduction from "../components/Introduction";
-import PostPreview from "../components/PostPreview";
+import PostItem from "../components/PostItem";
 
 const PostPreviewsContainer = styled.div`
   display: grid;
@@ -17,13 +16,13 @@ const PostPreviewsContainer = styled.div`
 
 export default function LandingPage() {
   const user = useSelector(selectUser);
-  const [projectFeed, setProjectFeed] = useState([]);
+  const [feed, setFeed] = useState([]);
 
   useEffect(() => {
     let mounted = true;
     const fetchProjecFeed = async () => {
       const { data: feed } = await axios.get("/posts/all");
-      if (mounted) setProjectFeed(feed);
+      if (mounted) setFeed(feed);
     };
     fetchProjecFeed();
     return () => (mounted = false);
@@ -35,16 +34,14 @@ export default function LandingPage() {
   }, []);
 
   const renderPostPreviews = () =>
-    projectFeed.map((props) => (
-      <PostPreview key={props._id} {...props}>
+    feed.map((props) => (
+      <PostItem key={props._id} {...props}>
         <div>Hello</div>
-        <Introduction />
-      </PostPreview>
+      </PostItem>
     ));
 
   return (
     <Fragment>
-      {!user && <Introduction />}
       <Container className="px-sm-0">
         <PostPreviewsContainer className="mt-4 card-deck">
           {renderPostPreviews()}
